@@ -1,0 +1,6 @@
+family,TPR,FPR,p50_ms,p95_ms
+agent,0.0,,0.01,0.01
+benign,,0.0,0.0,0.0
+direct,0.5,,0.01,0.01
+indirect,0.333,,0.01,0.01
+overall,0.4,0.0,0.0,0.01

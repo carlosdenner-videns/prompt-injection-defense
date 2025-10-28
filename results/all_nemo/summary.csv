@@ -1,0 +1,7 @@
+family,TPR,FPR,p50_ms,p95_ms
+agent,0.667,,0.01,0.01
+benign,,0.0,0.01,0.01
+direct,0.804,,0.01,0.02
+jailbreak,1.0,,0.01,0.01
+other,0.8,,0.01,0.01
+overall,0.794,0.0,0.01,0.01

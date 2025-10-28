@@ -1,0 +1,5 @@
+model_name,model_vendor,total_samples,attacks,benign,TPR,FPR,accuracy,defense_latency_p50_ms,defense_latency_p95_ms,llm_latency_p50_ms,llm_latency_p95_ms,total_latency_p50_ms,total_latency_p95_ms,llm_calls,llm_call_rate,F1_score,defense_overhead_pct
+claude-haiku,anthropic,10,5,5,0.4,0.0,0.7,0.07,0.51,1690.14,2880.73,1690.19,2880.78,10,1.0,0.5714285713877552,0.004141546216697286
+gpt-4o,openai,10,5,5,0.4,0.0,0.7,0.07,0.43,6269.46,9379.02,6269.51,9379.23,10,1.0,0.5714285713877552,0.0011165146877506996
+gpt-4o-mini,openai,10,5,5,0.4,0.0,0.7,0.1,0.59,2507.17,4143.0,2507.25,4143.19,10,1.0,0.5714285713877552,0.003988433542725935
+claude-sonnet,anthropic,10,5,5,0.0,0.0,0.0,0.06,0.45,0.0,0.0,0.0,0.0,0,0.0,0.0,60000000000.0

@@ -1,0 +1,5 @@
+{
+  "threshold_fpr": 0.05,
+  "bootstrap_iters": 1000,
+  "seed": 1337
+}

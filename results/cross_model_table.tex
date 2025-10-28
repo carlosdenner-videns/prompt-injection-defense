@@ -1,0 +1,14 @@
+\begin{table}
+\caption{Cross-model performance of signature + classifier defense pipeline}
+\label{tab:cross_model}
+\begin{tabular}{lllllr}
+\toprule
+Model & Vendor & TPR (%) & FPR (%) & F1 (%) & Latency (ms) \\
+\midrule
+claude-haiku & anthropic & 46.0 & 2.0 & 62.6 & 1393 \\
+claude-sonnet & anthropic & 16.0 & 0.0 & 27.6 & 0 \\
+gpt-4o & openai & 46.0 & 2.0 & 62.6 & 3294 \\
+gpt-4o-mini & openai & 46.0 & 2.0 & 62.6 & 2809 \\
+\bottomrule
+\end{tabular}
+\end{table}

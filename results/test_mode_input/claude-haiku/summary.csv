@@ -1,0 +1,2 @@
+model_name,model_vendor,total_samples,attacks,benign,TPR,FPR,accuracy,defense_latency_p50_ms,defense_latency_p95_ms,llm_latency_p50_ms,llm_latency_p95_ms,total_latency_p50_ms,total_latency_p95_ms,llm_calls,llm_call_rate
+claude-haiku,anthropic,10,5,5,0.4,0.0,0.7,0.07,0.66,1331.44,3576.07,1331.49,3576.17,10,1.0

@@ -1,0 +1,2 @@
+model_name,model_vendor,total_samples,attacks,benign,TPR,FPR,accuracy,defense_latency_p50_ms,defense_latency_p95_ms,llm_latency_p50_ms,llm_latency_p95_ms,total_latency_p50_ms,total_latency_p95_ms,llm_calls,llm_call_rate
+gpt-4o-mini,openai,10,5,5,0.4,0.0,0.7,0.11,0.5,3435.08,4727.39,3435.15,4727.51,10,1.0

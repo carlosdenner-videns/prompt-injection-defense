@@ -1,0 +1,4 @@
+family,TPR,FPR,p50_ms,p95_ms
+attack,0.851,,0.07,0.29
+benign,,0.035,0.14,0.39
+overall,0.851,0.035,0.08,0.37

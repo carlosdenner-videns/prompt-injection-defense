@@ -1,0 +1,13 @@
+# configs/rules.yml
+deny_patterns:
+  - '(?i)ignore (previous|all) (instructions|rules)'
+  - '(?i)as the system prompt'
+  - '(?i)you are now (my|the) (slave|assistant|developer)'
+  - '(?i)jailbreak|do anything now|DAN'
+  - '(?i)please output the hidden (token|password|secret)'
+  - '(?i)disregard (policy|guardrails|safety)'
+  - '(?i)system prompt is:'
+  - '(?i)reveal your (instructions|policies)'
+  - '(?i)<span[^>]*style=[^>]*display\s*:\s*none'
+  - '(?i)<!--.*?-->'
+allow_patterns: []

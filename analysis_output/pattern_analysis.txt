@@ -1,0 +1,122 @@
+PATTERN FREQUENCIES
+============================================================
+ignore_instructions      :  511 ( 51.1%)
+role_play                :   80 (  8.0%)
+context_switch           :   80 (  8.0%)
+prompt_leak              :   52 (  5.2%)
+instruction_override     :   39 (  3.9%)
+jailbreak                :   36 (  3.6%)
+system_override          :   21 (  2.1%)
+translation_tricks       :   11 (  1.1%)
+prompt_injection         :    0 (  0.0%)
+code_injection           :    0 (  0.0%)
+delimiter_attacks        :    0 (  0.0%)
+encoding_attacks         :    0 (  0.0%)
+
+
+TOP WORDS
+============================================================
+the                 : 1953
+and                 : 1310
+you                 : 1109
+with                :  569
+dan                 :  551
+mode                :  513
+what                :  500
+are                 :  480
+all                 :  472
+that                :  468
+chatgpt             :  468
+your                :  450
+will                :  384
+enabled             :  361
+can                 :  310
+everything          :  275
+question            :  271
+this                :  270
+germany             :  259
+ignore              :  252
+about               :  244
+answer              :  236
+for                 :  228
+any                 :  226
+now                 :  223
+would               :  219
+way                 :  210
+have                :  202
+forget              :  199
+how                 :  195
+output              :  188
+know                :  182
+not                 :  181
+was                 :  178
+tell                :  169
+und                 :  165
+but                 :  165
+able                :  150
+die                 :  147
+generate            :  145
+just                :  144
+above               :  143
+italy               :  141
+swiss               :  141
+like                :  134
+does                :  134
+content             :  133
+new                 :  132
+age                 :  132
+message             :  128
+
+
+TOP BIGRAMS
+============================================================
+dan mode                      :  513
+chatgpt with                  :  361
+with dan                      :  361
+mode enabled                  :  342
+you are                       :  191
+what way                      :  176
+germany italy                 :  141
+italy swiss                   :  141
+the age                       :  132
+that you                      :  125
+would like                    :  115
+forget everything             :  109
+hate trump                    :  106
+the user                      :   97
+enabled can                   :   95
+ignore all                    :   93
+you hate                      :   91
+all your                      :   90
+answer the                    :   90
+will able                     :   90
+drive officially              :   90
+officially the                :   90
+age germany                   :   90
+all the                       :   88
+and would                     :   85
+ignore everything             :   84
+new task                      :   80
+the dan                       :   76
+you will                      :   75
+the question                  :   74
+instructions and              :   70
+the following                 :   70
+disregard all                 :   68
+and what                      :   68
+documents provided            :   68
+tell that                     :   68
+and tell                      :   66
+the economyin                 :   61
+economyin germany             :   61
+everything and                :   61
+everything before             :   60
+before that                   :   60
+forget about                  :   58
+you must                      :   58
+have opinions                 :   57
+let the                       :   57
+the human                     :   57
+does the                      :   57
+how will                      :   55
+everything above              :   55
