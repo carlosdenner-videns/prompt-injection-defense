@@ -1,0 +1,16 @@
+\begin{table}[h]
+\centering
+\caption{Pairwise McNemar Statistical Significance Tests}
+\label{tab:mcnemar}
+\begin{tabular}{llcccc}
+\toprule
+Method A & Method B & Acc(A) & Acc(B) & $p$-value & Sig. \\
+\midrule
+Signature-Only & NeMo-Baseline & 0.625 & 0.557 & 0.0006 & $\checkmark$ \\
+Rules-Only & NeMo-Baseline & 0.613 & 0.557 & 0.0054 & $\checkmark$ \\
+Signature-Only & Rules-Only & 0.625 & 0.613 & 0.6025 &  \\
+\bottomrule
+\end{tabular}
+\\[0.2cm]
+{\small Note: Bonferroni-corrected $\alpha = 0.0167$ (3 comparisons)}
+\end{table}

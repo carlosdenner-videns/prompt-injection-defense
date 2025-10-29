@@ -1,0 +1,17 @@
+{
+  "random_state": 42,
+  "train_size": 1000,
+  "dev_size": 400,
+  "test_size": 400,
+  "ood_size": 200,
+  "total_size": 2000,
+  "attack_families": [
+    "exfiltration",
+    "instruction_override",
+    "jailbreak",
+    "role_play",
+    "context_injection",
+    "encoding_bypass"
+  ],
+  "split_date": "2025-10-29T11:52:48.414054"
+}

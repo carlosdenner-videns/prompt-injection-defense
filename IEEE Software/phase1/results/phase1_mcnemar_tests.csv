@@ -1,0 +1,4 @@
+method_a,method_b,accuracy_a,accuracy_b,both_correct,a_correct_b_wrong,a_wrong_b_correct,both_wrong,statistic,p_value,significant,interpretation
+Signature-Only,NeMo-Baseline,0.625,0.5575,207,43,16,134,43.0,0.0005843646280443461,True,Signature-Only significantly better than NeMo-Baseline
+Rules-Only,NeMo-Baseline,0.6125,0.5575,205,40,18,137,40.0,0.005354859650800294,True,Rules-Only significantly better than NeMo-Baseline
+Signature-Only,Rules-Only,0.625,0.6125,218,32,27,123,0.2711864406779661,0.602537006105314,False,No significant difference

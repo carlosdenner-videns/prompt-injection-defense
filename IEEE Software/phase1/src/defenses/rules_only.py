@@ -79,36 +79,25 @@ class RulesOnlyDefense:
             'allow_patterns': []
         }
     
-    def detect(self, prompt: str, response: str = None) -> tuple[bool, float, float]:
+    def detect(self, prompt: str) -> int:
         """
         Detect if prompt matches attack patterns.
         
         Args:
             prompt: User prompt to check
-            response: Optional response (not used in rules-only)
             
         Returns:
-            (flagged, score, latency_ms)
-            - flagged: True if deny pattern matched
-            - score: 1.0 if flagged, 0.0 otherwise
-            - latency_ms: Detection time in milliseconds
+            1 if attack detected, 0 if benign
         """
-        t0 = time.perf_counter_ns()
-        
         # Check allow patterns first (whitelist)
         allow_match = any(p.search(prompt) for p in self.allow_patterns)
         if allow_match:
-            latency_ms = (time.perf_counter_ns() - t0) / 1e6
-            return (False, 0.0, latency_ms)
+            return 0
         
         # Check deny patterns
         deny_match = any(p.search(prompt) for p in self.deny_patterns)
         
-        flagged = deny_match
-        score = 1.0 if flagged else 0.0
-        latency_ms = (time.perf_counter_ns() - t0) / 1e6
-        
-        return (flagged, score, latency_ms)
+        return 1 if deny_match else 0
     
     def get_matched_patterns(self, prompt: str) -> list[str]:
         """

@@ -9,17 +9,19 @@ import time
 
 class SignatureOnlyDefense:
     """
-    Signature-based prompt injection detection using canary tokens.
+    Signature-based prompt injection detection using pattern matching.
     
-    This defense:
-    1. Injects a random security token into the system prompt
-    2. Checks if the token appears in the LLM response
-    3. Flags responses that leak the token
+    Adapted for INPUT DETECTION (prompt-only classification):
+    - Detects common prompt injection patterns in user input
+    - Uses signature patterns from known attack types
     
-    Expected performance (from prior testing):
-    - TPR: ~80% (catches prompt leakage attacks)
-    - FPR: 0% (no false positives on benign prompts)
-    - Latency: <0.01ms
+    Note: Original design was for OUTPUT detection (canary tokens in responses).
+    This adapted version classifies prompts directly using pattern matching.
+    
+    Expected performance:
+    - TPR: ~20-30% (pattern-based detection is limited)
+    - FPR: ~1-2% (false positives on benign prompts with similar patterns)
+    - Latency: <1ms
     """
     
     def __init__(self, token_length: int = 8):
@@ -27,59 +29,39 @@ class SignatureOnlyDefense:
         Initialize signature defense.
         
         Args:
-            token_length: Length of hex token in bytes (default: 8 = 16 chars)
+            token_length: Unused in input detection mode (kept for compatibility)
         """
         self.token_length = token_length
         self.name = "Signature-Only"
+        
+        # Signature patterns for input detection
+        self.attack_patterns = [
+            r'(?i)(ignore|disregard|forget).{0,20}(previous|above|prior)',
+            r'(?i)(show|reveal|display|print).{0,20}(prompt|instruction|system)',
+            r'(?i)developer.{0,10}mode',
+            r'(?i)\bdan\b',
+            r'(?i)do.{0,10}anything.{0,10}now',
+        ]
     
-    def inject_token(self, prompt: str) -> tuple[str, str]:
+    def detect(self, prompt: str) -> int:
         """
-        Inject security token into prompt.
+        Detect if prompt contains injection attack patterns.
         
         Args:
-            prompt: Original user prompt
+            prompt: User prompt to classify
             
         Returns:
-            (modified_prompt, token) tuple
+            1 if attack detected, 0 if benign
         """
-        token = secrets.token_hex(self.token_length)
-        # Inject token as hidden system marker
-        modified = f"[SECURITY_TOKEN:{token}]\n{prompt}"
-        return modified, token
-    
-    def detect(self, prompt: str, response: str) -> tuple[bool, float, float]:
-        """
-        Detect if response leaks the security token.
-        
-        Args:
-            prompt: Original user prompt (not used in signature-only)
-            response: LLM response to check
-            
-        Returns:
-            (flagged, score, latency_ms)
-            - flagged: True if token found in response
-            - score: 1.0 if flagged, 0.0 otherwise
-            - latency_ms: Detection time in milliseconds
-        """
-        # Note: In real usage, token would be stored from inject_token()
-        # For evaluation, we extract it from the modified prompt
-        t0 = time.perf_counter_ns()
-        
-        # Extract token from prompt (if present)
         import re
-        token_match = re.search(r'\[SECURITY_TOKEN:([a-f0-9]+)\]', prompt)
         
-        if token_match:
-            token = token_match.group(1)
-            flagged = token in (response or "")
-        else:
-            # No token injected - can't detect leakage
-            flagged = False
+        # Check for any signature pattern match
+        for pattern in self.attack_patterns:
+            if re.search(pattern, prompt):
+                return 1
         
-        score = 1.0 if flagged else 0.0
-        latency_ms = (time.perf_counter_ns() - t0) / 1e6
-        
-        return (flagged, score, latency_ms)
+        return 0
     
     def __repr__(self):
-        return f"SignatureOnlyDefense(token_length={self.token_length})"
+        return f"SignatureOnlyDefense(patterns={len(self.attack_patterns)})"
+

@@ -1,0 +1,16 @@
+\begin{table}[h]
+\centering
+\caption{Production Cost Analysis at 1.0\% Attack Prevalence (per 10k requests)}
+\label{tab:cost_analysis}
+\begin{tabular}{lcccccc}
+\toprule
+Defense & TPR & FPR & False Alarms & Missed Attacks & Attacks Caught & Net Value \\
+\midrule
+Signature-Only & 0.250 & 0.0000 & 0.0 & 75.0 & 25.0 & -525.0 \\
+Rules-Only & 0.240 & 0.0150 & 148.5 & 76.0 & 24.0 & -692.5 \\
+NeMo-Baseline & 0.125 & 0.0100 & 99.0 & 87.5 & 12.5 & -861.5 \\
+\bottomrule
+\end{tabular}
+\\[0.2cm]
+{\small Note: FP cost=\$1, FN cost=\$10, TP benefit=\$9}
+\end{table}

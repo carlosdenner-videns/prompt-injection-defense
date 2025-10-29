@@ -69,25 +69,17 @@ class NeMoBaselineDefense:
             'low': 0.25,
         }
     
-    def detect(self, prompt: str, response: str = None) -> tuple[bool, float, float]:
+    def detect(self, prompt: str) -> int:
         """
         Detect prompt injection using NeMo-style pattern matching.
         
         Args:
             prompt: User prompt to check
-            response: Optional response (not used in this baseline)
             
         Returns:
-            (flagged, score, latency_ms)
-            - flagged: True if score >= threshold
-            - score: Weighted pattern match score in [0.0, 1.0]
-            - latency_ms: Detection time in milliseconds
+            1 if attack detected, 0 if benign
         """
-        t0 = time.perf_counter_ns()
-        
         text = prompt.lower()
-        if response:
-            text += " " + response.lower()
         
         # Count weighted pattern matches
         score = 0.0
@@ -131,10 +123,7 @@ class NeMoBaselineDefense:
         # Expected max score ~3-5 for heavy attacks
         score = min(1.0, score / 3.0)
         
-        flagged = score >= self.threshold
-        latency_ms = (time.perf_counter_ns() - t0) / 1e6
-        
-        return (flagged, score, latency_ms)
+        return 1 if score >= self.threshold else 0
     
     def __repr__(self):
         return f"NeMoBaselineDefense(threshold={self.threshold})"

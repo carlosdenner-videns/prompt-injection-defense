@@ -1,0 +1,10 @@
+{
+  "Signature-Only": {
+    "TPR": 1.0,
+    "FPR": 1.0
+  },
+  "Rules-Only": {
+    "TPR": 0.04,
+    "FPR": 0.12
+  }
+}

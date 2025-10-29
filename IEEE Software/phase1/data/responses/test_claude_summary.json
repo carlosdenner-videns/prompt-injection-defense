@@ -1,0 +1,9 @@
+{
+  "model": "claude",
+  "split": "test",
+  "total_prompts": 400,
+  "successful_responses": 400,
+  "failed_responses": 0,
+  "success_rate": 100.0,
+  "timestamp": "2025-10-29T14:16:58.474272"
+}
