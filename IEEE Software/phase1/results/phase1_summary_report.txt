@@ -1,0 +1,78 @@
+======================================================================
+PHASE 1: BASELINES AND PRIOR ART COMPARISON - SUMMARY REPORT
+======================================================================
+
+PERFORMANCE RANKING (by F1 Score):
+----------------------------------------------------------------------
+
+1. Signature-Only
+   TPR:       79.9% [77.4%, 82.3%]
+   FPR:       0.0% [0.0%, 0.0%]
+   Precision: 100.0%
+   F1 Score:  0.888
+   Latency:   0.001 ms (p50)
+
+2. Rules-Only
+   TPR:       19.8% [17.1%, 22.2%]
+   FPR:       1.1% [0.5%, 1.8%]
+   Precision: 94.7%
+   F1 Score:  0.328
+   Latency:   0.024 ms (p50)
+
+3. NeMo-Baseline
+   TPR:       13.0% [10.9%, 15.1%]
+   FPR:       0.5% [0.1%, 1.0%]
+   Precision: 96.3%
+   F1 Score:  0.229
+   Latency:   0.014 ms (p50)
+
+4. OpenAI-Moderation
+   TPR:       12.0% [10.0%, 13.9%]
+   FPR:       1.5% [0.8%, 2.2%]
+   Precision: 88.9%
+   F1 Score:  0.211
+   Latency:   225.556 ms (p50)
+
+======================================================================
+KEY FINDINGS FOR IEEE SOFTWARE PAPER
+======================================================================
+
+1. BEST OVERALL PERFORMANCE:
+   Signature-Only: F1=0.888
+   - Achieves 79.9% TPR with 0.0% FPR
+
+2. LOWEST FALSE POSITIVE RATE:
+   Signature-Only: FPR=0.0%
+   - Critical for production deployment (user experience)
+
+3. FASTEST DEFENSE:
+   Signature-Only: 0.001 ms
+   - Near-zero overhead for high-throughput applications
+
+4. BASELINE COMPARISON:
+   - Traditional rules (NeMo): Moderate performance baseline
+   - Commercial API: Real-world comparator (if tested)
+   - Signature-only: High TPR but limited scope
+
+5. RESEARCH IMPLICATIONS:
+   - Current best TPR: 79.9%
+   - Current best FPR: 0.0%
+   - Gap to ideal (TPR=100%, FPR=0%): 20.1% TPR gap
+   - Motivation for data-driven pattern discovery (Phases 2-6)
+
+======================================================================
+REPRODUCTION NOTES
+======================================================================
+
+Dataset: HuggingFace prompt-injections (2,000 samples)
+Attacks: 1,000 (50%)
+Benign:  1,000 (50%)
+Seed:    42 (reproducible)
+
+Statistical validation:
+- Bootstrap confidence intervals: 1,000 iterations, 95% confidence
+- All results include [lower, upper] CI bounds
+
+======================================================================
+END OF REPORT
+======================================================================

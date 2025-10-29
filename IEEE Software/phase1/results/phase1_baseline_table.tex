@@ -1,0 +1,17 @@
+% Phase 1 Baseline Performance Table
+% Table: Defense Performance Comparison
+\begin{table}[t]
+\centering
+\caption{Baseline Defense Performance on HuggingFace Dataset (2,000 samples)}
+\label{tab:phase1-baselines}
+\begin{tabular}{lcccccc}
+\hline
+\textbf{Defense} & \textbf{TPR} & \textbf{FPR} & \textbf{Precision} & \textbf{F1} & \textbf{Latency (ms)} \\
+\hline
+Signature-Only & 0.799 & 0.000 & 1.000 & 0.888 & 0.001 \\
+Rules-Only & 0.198 & 0.011 & 0.947 & 0.328 & 0.024 \\
+NeMo-Baseline & 0.130 & 0.005 & 0.963 & 0.229 & 0.014 \\
+OpenAI-Moderation & 0.120 & 0.015 & 0.889 & 0.211 & 225.556 \\
+\hline
+\end{tabular}
+\end{table}

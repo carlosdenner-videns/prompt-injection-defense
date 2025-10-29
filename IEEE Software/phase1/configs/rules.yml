@@ -1,0 +1,31 @@
+# Baseline rule patterns for Rules-Only defense
+# Based on common prompt injection attack patterns
+
+deny_patterns:
+  # Ignore/override instruction patterns
+  - '(?i)\b(ignore|disregard|forget|skip)\s+(previous|all|above|your)\s+(instructions?|rules?|directives?)'
+  - '(?i)ignore\s+everything'
+  - '(?i)forget\s+all'
+  
+  # DAN mode and jailbreak patterns
+  - '(?i)\bdan\s+mode\b'
+  - '(?i)do\s+anything\s+now'
+  - '(?i)\bjailbreak\b'
+  - '(?i)developer\s+mode'
+  
+  # Role-play attack patterns
+  - '(?i)\b(pretend|act\s+as|you\s+are\s+now)\b.{0,30}\b(that|as\s+if)'
+  
+  # Prompt leakage patterns
+  - '(?i)\b(show|reveal|display|tell\s+me).{0,40}\b(prompt|instructions?|system\s+message)'
+  - '(?i)what\s+(are|were)\s+your\s+instructions?'
+  
+  # System override patterns
+  - '(?i)\b(system|admin|root)\s+(mode|access|prompt)\b'
+  
+  # Context markers
+  - '(?i)^---+\s*(new|ignore|forget)'
+  - '(?i)^===+\s*(new|ignore|forget)'
+
+# Allow patterns (whitelist - currently empty)
+allow_patterns: []

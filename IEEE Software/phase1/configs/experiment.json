@@ -1,0 +1,65 @@
+{
+  "description": "Phase 1: Baselines and Prior Art Comparison",
+  "purpose": "Establish credible reference points showing state-of-the-art without novel contributions",
+  
+  "dataset": {
+    "path": "data/prompts_hf_augmented.csv",
+    "total_samples": 2000,
+    "attack_samples": 1000,
+    "benign_samples": 1000,
+    "seed": 42
+  },
+  
+  "defenses": [
+    {
+      "name": "Signature-Only",
+      "description": "Canary token-based prompt leakage detection",
+      "expected_tpr": 0.80,
+      "expected_fpr": 0.00,
+      "parameters": {
+        "token_length": 8
+      }
+    },
+    {
+      "name": "Rules-Only",
+      "description": "Simple regex pattern matching",
+      "expected_tpr": 0.25,
+      "expected_fpr": 0.05,
+      "parameters": {
+        "rules_path": "configs/rules.yml"
+      }
+    },
+    {
+      "name": "NeMo-Baseline",
+      "description": "NeMo Guardrails-style weighted patterns",
+      "expected_tpr": 0.35,
+      "expected_fpr": 0.10,
+      "parameters": {
+        "threshold": 0.5
+      }
+    },
+    {
+      "name": "OpenAI-Moderation",
+      "description": "Commercial content moderation API",
+      "expected_tpr": 0.50,
+      "expected_fpr": 0.02,
+      "parameters": {
+        "threshold": 0.5
+      },
+      "requires_api_key": true
+    }
+  ],
+  
+  "evaluation": {
+    "metrics": ["TPR", "FPR", "Precision", "F1", "Latency"],
+    "bootstrap_iterations": 1000,
+    "confidence_level": 0.95,
+    "save_detailed_results": true
+  },
+  
+  "output": {
+    "results_dir": "results/",
+    "formats": ["csv", "json", "latex"],
+    "generate_plots": true
+  }
+}

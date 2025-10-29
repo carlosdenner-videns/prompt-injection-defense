@@ -1,0 +1,21 @@
+# Phase 1 Requirements
+# Baselines and Prior Art Comparison
+
+# Core dependencies
+pandas>=2.2.0
+numpy>=1.26.0
+pyyaml>=6.0.0
+
+# Statistical analysis
+scipy>=1.10.0
+scikit-learn>=1.3.0
+
+# OpenAI API (optional - only needed for Moderation API baseline)
+openai>=1.0.0
+
+# Environment variables (required for loading .env files)
+python-dotenv>=1.0.0
+
+# Visualization (optional - for generating plots)
+matplotlib>=3.7.0
+seaborn>=0.12.0
