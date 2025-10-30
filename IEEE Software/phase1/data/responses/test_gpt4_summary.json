@@ -2,8 +2,8 @@
   "model": "gpt4",
   "split": "test",
   "total_prompts": 400,
-  "successful_responses": 18,
-  "failed_responses": 382,
-  "success_rate": 4.5,
-  "timestamp": "2025-10-29T13:46:58.871846"
+  "successful_responses": 0,
+  "failed_responses": 400,
+  "success_rate": 0.0,
+  "timestamp": "2025-10-29T15:32:27.400468"
 }

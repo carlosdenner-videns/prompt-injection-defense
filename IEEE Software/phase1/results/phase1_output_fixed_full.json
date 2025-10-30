@@ -1,0 +1,106 @@
+{
+  "sanity_check": {
+    "benign_count": 200,
+    "leak_count": 0,
+    "leak_rate": 0.0,
+    "status": "PASS"
+  },
+  "defenses": [
+    {
+      "defense": "Signature-Only",
+      "tp": 0,
+      "fp": 0,
+      "tn": 200,
+      "fn": 199,
+      "tpr": 0.0,
+      "fpr": 0.0,
+      "precision": 0.0,
+      "f1": 0.0,
+      "latency_mean": 0.0003800356298460996,
+      "latency_p50": 0.0002384185791015625,
+      "latency_p95": 0.00095367431640625,
+      "tpr_ci_lower": 0.0,
+      "tpr_ci_upper": 0.0,
+      "fpr_ci_lower": 0.0,
+      "fpr_ci_upper": 0.0,
+      "precision_ci_lower": 0.0,
+      "precision_ci_upper": 0.0,
+      "f1_ci_lower": 0.0,
+      "f1_ci_upper": 0.0
+    },
+    {
+      "defense": "Rules-Only",
+      "tp": 11,
+      "fp": 18,
+      "tn": 182,
+      "fn": 188,
+      "tpr": 0.05527638190954774,
+      "fpr": 0.09,
+      "precision": 0.3793103448275862,
+      "f1": 0.09649122807017545,
+      "latency_mean": 0.04046215538847117,
+      "latency_p50": 0.0276,
+      "latency_p95": 0.10815999999999984,
+      "tpr_ci_lower": 0.02403846153846154,
+      "tpr_ci_upper": 0.08956062384705683,
+      "fpr_ci_lower": 0.055044724770642206,
+      "fpr_ci_upper": 0.1298125,
+      "precision_ci_lower": 0.21202651515151524,
+      "precision_ci_upper": 0.5714285714285714,
+      "f1_ci_lower": 0.04585599236165887,
+      "f1_ci_upper": 0.15111484593837535
+    },
+    {
+      "defense": "OpenAI-Moderation",
+      "tp": 0,
+      "fp": 0,
+      "tn": 200,
+      "fn": 199,
+      "tpr": 0.0,
+      "fpr": 0.0,
+      "precision": 0.0,
+      "f1": 0.0,
+      "latency_mean": 8179.085269924813,
+      "latency_p50": 8146.2906,
+      "latency_p95": 8604.33113,
+      "tpr_ci_lower": 0.0,
+      "tpr_ci_upper": 0.0,
+      "fpr_ci_lower": 0.0,
+      "fpr_ci_upper": 0.0,
+      "precision_ci_lower": 0.0,
+      "precision_ci_upper": 0.0,
+      "f1_ci_lower": 0.0,
+      "f1_ci_upper": 0.0
+    }
+  ],
+  "mcnemar_tests": [
+    {
+      "defense_1": "Signature-Only",
+      "defense_2": "Rules-Only",
+      "statistic": 29.0,
+      "p_value": 3.725290298461914e-09,
+      "significant": true
+    },
+    {
+      "defense_1": "Signature-Only",
+      "defense_2": "OpenAI-Moderation",
+      "statistic": 0.0,
+      "p_value": 1.0,
+      "significant": false
+    },
+    {
+      "defense_1": "Rules-Only",
+      "defense_2": "OpenAI-Moderation",
+      "statistic": 29.0,
+      "p_value": 3.725290298461914e-09,
+      "significant": true
+    }
+  ],
+  "metadata": {
+    "responses_file": "data/responses/test_claude_responses.csv",
+    "total_samples": 399,
+    "attack_samples": 199,
+    "benign_samples": 200,
+    "skip_moderation": false
+  }
+}

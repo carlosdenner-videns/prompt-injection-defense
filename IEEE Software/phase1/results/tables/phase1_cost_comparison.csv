@@ -1,0 +1,5 @@
+Defense,INPUT_Cost_per_10k,OUTPUT_Cost_per_10k,Cost_Difference,Overhead
+Signature-Only,$100500.00,$500000.50,$399500.50,398%
+Rules-Only,$401055.00,$472812.31,$71757.31,18%
+NeMo-Baseline,$435025.00,$0.00,$-435025.00,-100%
+OpenAI-Moderation,$440075.02,$500000.52,$59925.50,14%

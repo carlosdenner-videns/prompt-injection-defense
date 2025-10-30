@@ -1,0 +1,4 @@
+defense_1,defense_2,statistic,p_value,significant
+Signature-Only,Rules-Only,29.0,3.725290298461914e-09,True
+Signature-Only,OpenAI-Moderation,0.0,1.0,False
+Rules-Only,OpenAI-Moderation,29.0,3.725290298461914e-09,True
